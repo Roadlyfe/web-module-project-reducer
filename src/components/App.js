@@ -7,10 +7,20 @@ import CalcButton from './CalcButton';
 
 import reducer, { initialState } from '../reducers';
 
+import {
+  addOne,
+  applyNumber,
+} from '../actions'
+
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
-console.log(state)
+
+  // const handleNumberClick = () => {
+  // }
   
+  const handle1Click = () => {
+    dispatch(addOne())
+  }
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -34,7 +44,7 @@ console.log(state)
             </div>
 
             <div className="row">
-              <CalcButton value={1}/>
+              <CalcButton value={1} onClick={handle1Click}/>
               <CalcButton value={2}/>
               <CalcButton value={3}/>
             </div>
