@@ -10,6 +10,7 @@ import reducer, { initialState } from '../reducers';
 import {
   applyNumber,
   changeOperation,
+  clearDisplay,
 } from '../actions'
 
 function App() {
@@ -24,6 +25,10 @@ function App() {
 
   const handleOperationClick = (operator) => {
     dispatch(changeOperation(operator));
+  }
+
+  const handleClearDisplay = () => {
+    dispatch(clearDisplay())
   }
   return (
     <div className="App">
@@ -72,7 +77,7 @@ function App() {
             </div>
 
             <div className="row ce_button">
-              <CalcButton value={"CE"}/>
+              <CalcButton value={"CE"} onClick={handleClearDisplay}/>
             </div>
 
           </form>
